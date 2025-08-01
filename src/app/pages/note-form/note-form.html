@@ -1,0 +1,13 @@
+<form [formGroup]="noteForm" (ngSubmit)="onSubmit()" class="note-form">
+  <label>
+    Título:
+    <input type="text" formControlName="title" />
+  </label>
+
+  <label>
+    Descripción:
+    <textarea formControlName="description"></textarea>
+  </label>
+
+  <button type="submit" [disabled]="noteForm.invalid">Crear Nota</button>
+</form>

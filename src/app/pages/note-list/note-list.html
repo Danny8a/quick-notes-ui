@@ -1,0 +1,15 @@
+<app-note-form
+  (noteCreated)="onNoteCreated()"
+></app-note-form>
+
+<div class="note-list">
+  @for (note of notes(); track note.id) {
+    <app-note-card
+      [id]="note.id"
+      [title]="note.title"
+      [description]="note.description"
+      (delete)="onDeleteNote($event)"
+      (noteUpdated)="onNoteUpdated()"
+    ></app-note-card>
+  }
+</div>
