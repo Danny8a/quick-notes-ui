@@ -24,7 +24,7 @@ export class NoteListComponent implements OnInit {
   loadNotes(): void {
     this.noteService.getAll().subscribe({
       next: (data) => this.notes.set(data),
-      error: (err) => console.error('Error al cargar notas', err)
+      error: (err) => console.error('Error', err)
     });
   }
 
@@ -37,10 +37,14 @@ export class NoteListComponent implements OnInit {
     this.loadNotes();
   }
 
+  onEditNote(note: Note): void {
+    this.noteToEdit.set(note);
+  }
+
   onDeleteNote(id: number): void {
     this.noteService.delete(id).subscribe({
       next: () => this.loadNotes(),
-      error: (err) => console.error('Error al eliminar nota', err)
+      error: (err) => console.error('Error', err)
     });
   }
 }

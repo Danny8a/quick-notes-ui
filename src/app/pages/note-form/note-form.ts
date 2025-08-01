@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Output} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Note, NoteService} from '../../services/note';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Note, NoteService } from '../../services/note';
 
 @Component({
   selector: 'app-note-form',
@@ -28,14 +28,14 @@ export class NoteFormComponent {
   onSubmit(): void {
     if (this.noteForm.invalid) return;
 
-    const {title, description} = this.noteForm.value;
+    const { title, description } = this.noteForm.value;
 
-    this.noteService.create({title, description} as Note).subscribe({
+    this.noteService.create({ title, description } as Note).subscribe({
       next: () => {
         this.noteForm.reset();
         this.noteCreated.emit();
       },
-      error: (err) => console.error('Error al crear nota', err)
+      error: (err) => console.error('Error', err)
     });
   }
 }
