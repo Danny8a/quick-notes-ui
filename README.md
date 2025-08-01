@@ -61,6 +61,11 @@ quick-notes-ui/
    ng serve
    ```
 
+   ```bash
+    ng test
+   ```
+
+
 4. Abre la aplicación en tu navegador:
 
    ```
